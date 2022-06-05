@@ -9,16 +9,16 @@
 <meta name="keywords" content="">
 <meta name="description" content="Posts - Collie的博客">
 <meta name="author" content="">
-<link rel="canonical" href="http://weita0.github.io/collie.github.io/posts/">
-<link crossorigin="anonymous" href="/collie.github.io/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://weita0.github.io/collie.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://weita0.github.io/collie.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://weita0.github.io/collie.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://weita0.github.io/collie.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://weita0.github.io/collie.github.io/safari-pinned-tab.svg">
+<link rel="canonical" href="#ZgotmplZ">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="#ZgotmplZ">
+<link rel="icon" type="image/png" sizes="16x16" href="#ZgotmplZ">
+<link rel="icon" type="image/png" sizes="32x32" href="#ZgotmplZ">
+<link rel="apple-touch-icon" href="#ZgotmplZ">
+<link rel="mask-icon" href="#ZgotmplZ">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://weita0.github.io/collie.github.io/posts/index.xml">
+<link rel="alternate" type="application/rss+xml" href="localhost:1313/posts/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +58,7 @@
 </noscript><meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://weita0.github.io/collie.github.io/posts/" />
+<meta property="og:url" content="localhost:1313/posts/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -74,7 +74,7 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://weita0.github.io/collie.github.io/posts/"
+      "item": "localhost:1313/posts/"
     }
   ]
 }
@@ -96,7 +96,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://weita0.github.io/collie.github.io/" accesskey="h" title="Collie的博客 (Alt + H)">Collie的博客</a>
+            <a href="#ZgotmplZ" accesskey="h" title="Collie的博客 (Alt + H)">Collie的博客</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -133,20 +133,35 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>First Article
+    <h2>雨果
     </h2>
   </header>
   <div class="entry-content">
-    <p>hugo test hello there, this is the first article using Hugo.
-test</p>
+    <p>写在前面 这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。
+快速实现 首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。
+在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用brew install hugo来安装。
+安装完成后，执行hugo new site [projname]命令，这个命令会为你的项目生成一个目录。
+cd [projname]进入项目目录。
+git init 初始化git。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。
+打开一个文本编辑器，在config.toml文件下添加一行，theme = &#34;ananke&#34;。
+hugo new posts/first.md这个命令会为你创建一篇文章草稿。打开这个文件可以看到
+--- title: &#34;First&#34; date: 2022-06-05T16:06:50&#43;08:00 draft: true --- title是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。
+draft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来
+试着在这个文件下面随便写点什么
+hugo
+这个命令会构建你的网站
+编辑config.toml，增加一行baseURL = &#39;localhost:1313/&#39;，当然也可以是别的端口号。
+hugo server -D
+在本地启动一个服务，通过localhost:1313，就可以看到你的网站了。</p>
   </div>
   <footer class="entry-footer"><span title='2022-06-04 17:50:49 +0800 CST'>June 4, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to First Article" href="http://weita0.github.io/collie.github.io/posts/first-article/"></a>
+  <a class="entry-link" aria-label="post link to 雨果" href="#ZgotmplZ"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="http://weita0.github.io/collie.github.io/">Collie的博客</a></span>
+    <span>&copy; 2022 <a href="#ZgotmplZ">Collie的博客</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
