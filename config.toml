@@ -1,4 +1,4 @@
-baseURL = 'localhost:1313/'
+baseURL = 'https://weita0.github.io/'
 languageCode = 'zh-Hans'
 title = 'Collie的博客'
 theme = "PaperMod"

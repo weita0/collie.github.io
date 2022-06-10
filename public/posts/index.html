@@ -9,16 +9,16 @@
 <meta name="keywords" content="">
 <meta name="description" content="Posts - Collie的博客">
 <meta name="author" content="">
-<link rel="canonical" href="#ZgotmplZ">
+<link rel="canonical" href="https://weita0.github.io/posts/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="#ZgotmplZ">
-<link rel="icon" type="image/png" sizes="16x16" href="#ZgotmplZ">
-<link rel="icon" type="image/png" sizes="32x32" href="#ZgotmplZ">
-<link rel="apple-touch-icon" href="#ZgotmplZ">
-<link rel="mask-icon" href="#ZgotmplZ">
+<link rel="icon" href="https://weita0.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://weita0.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://weita0.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://weita0.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://weita0.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="localhost:1313/posts/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://weita0.github.io/posts/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +58,7 @@
 </noscript><meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="localhost:1313/posts/" />
+<meta property="og:url" content="https://weita0.github.io/posts/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -74,7 +74,7 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "localhost:1313/posts/"
+      "item": "https://weita0.github.io/posts/"
     }
   ]
 }
@@ -96,7 +96,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="#ZgotmplZ" accesskey="h" title="Collie的博客 (Alt + H)">Collie的博客</a>
+            <a href="https://weita0.github.io/" accesskey="h" title="Collie的博客 (Alt + H)">Collie的博客</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -133,6 +133,27 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Promise
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Promise 本文的主题是JavaScript的Promise API，试图在一篇文章内厘清这个开发中必不可少会经常用到的API。
+是什么  A Proxy for a value that will eventually become availabel. 来源
+ 对于已经了解Promise的开发者来说，这个英文的定义非常清晰简洁，但对完全不了解的人来说，可能会一头雾水，我尝试给这部分朋友解释下：Promise本质上是一个值的代理，当这个值变得可用时，代理会告诉你这个值可用了，不需要你（进程）一直盯着这个值。
+为什么要引入这个概念  deal with asyncchronous code without stuck in callback hell. 来源
+ 避免开发中处理异步的代码陷入回调地狱。
+年轻的开发者可能对回调地狱没什么概念，在没有Promise的时代，处理异步请求只能通过回调函数，在NodeJs的API里还能窥见一些封建残余，这里拿fs（file system）模块为例
+ const fs = require(&#39;fs&#39;);  fs.readFile(&#39;/ets/hosts&#39;, (err, data) =&gt; {  if (err) throw err;  // do something with data... }) 如果业务复杂到一定程度，代码里会出现很多回调的嵌套，使得项目异常难以维护。
+实现原理 一个Promise包含三种状态
+ pending state resolved state rejected state  对应到现实中，一件事，要么正在处理，要么处理完了，要么在处理的过程中出了差错。
+比如你去饭店吃饭，点了一个大盘鸡，从下单开始，状态就是（pending），等了10分钟后，服务员把一盘热气腾腾大盘鸡端上桌了，此时状态就是（resolved），假如在你下单后，后厨发现没鸡了，服务员过来告诉你大盘鸡做不了，这就叫（rejected）。下单这个动作，可以理解为创建了一个Promise，之后无论大盘鸡做好没做好，服务员都会来通知你，最后要么你顺利吃上大盘鸡，要么吃不上，就这两种结果。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-09 20:39:58 +0800 CST'>June 9, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Promise" href="https://weita0.github.io/posts/promise/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>雨果
     </h2>
   </header>
@@ -143,25 +164,24 @@
 安装完成后，执行hugo new site [projname]命令，这个命令会为你的项目生成一个目录。
 cd [projname]进入项目目录。
 git init 初始化git。
-git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。这里不知道git submodule也没关系。
 打开一个文本编辑器，在config.toml文件下添加一行，theme = &#34;ananke&#34;。
 hugo new posts/first.md这个命令会为你创建一篇文章草稿。打开这个文件可以看到
---- title: &#34;First&#34; date: 2022-06-05T16:06:50&#43;08:00 draft: true --- title是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。
-draft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来
-试着在这个文件下面随便写点什么
-hugo
-这个命令会构建你的网站
+--- title: &#34;First&#34; date: 2022-06-05T16:06:50&#43;08:00 draft: true --- title是你这篇文章的标题，默认的标题是你的文件名去掉中划线。
+draft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来，这里把它改为draft: false。
+试着在这个文件下面随便写点什么。
 编辑config.toml，增加一行baseURL = &#39;localhost:1313/&#39;，当然也可以是别的端口号。
-hugo server -D
-在本地启动一个服务，通过localhost:1313，就可以看到你的网站了。</p>
+通过hugo server -D命令在本地启动服务，浏览器里输入地址localhost:1313，就可以看到你的网站了。
+部署到Github Pages 完成这一步之前，你只能在本地访问你的网站，完成这一步之后，任何上网的人都可以通过一个专属于你的地址访问你的网站。
+在Github上创建一个项目仓库（repo），项目名必须是 [userid].github.io，userid是</p>
   </div>
   <footer class="entry-footer"><span title='2022-06-04 17:50:49 +0800 CST'>June 4, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 雨果" href="#ZgotmplZ"></a>
+  <a class="entry-link" aria-label="post link to 雨果" href="https://weita0.github.io/posts/hugo/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>fuckyaall</span>
+    <span>&copy; 2022 <a href="https://weita0.github.io/">Collie的博客</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

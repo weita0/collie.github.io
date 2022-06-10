@@ -2,35 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Collie的博客</title>
-    <link>localhost:1313/</link>
+    <link>https://weita0.github.io/</link>
     <description>Recent content on Collie的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <copyright>fuckyaall</copyright>
-    <lastBuildDate>Sat, 04 Jun 2022 17:50:49 +0800</lastBuildDate><atom:link href="localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jun 2022 20:39:58 +0800</lastBuildDate><atom:link href="https://weita0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Promise</title>
+      <link>https://weita0.github.io/posts/promise/</link>
+      <pubDate>Thu, 09 Jun 2022 20:39:58 +0800</pubDate>
+      
+      <guid>https://weita0.github.io/posts/promise/</guid>
+      <description>Promise 本文的主题是JavaScript的Promise API，试图在一篇文章内厘清这个开发中必不可少会经常用到的API。
+是什么  A Proxy for a value that will eventually become availabel. 来源
+ 对于已经了解Promise的开发者来说，这个英文的定义非常清晰简洁，但对完全不了解的人来说，可能会一头雾水，我尝试给这部分朋友解释下：Promise本质上是一个值的代理，当这个值变得可用时，代理会告诉你这个值可用了，不需要你（进程）一直盯着这个值。
+为什么要引入这个概念  deal with asyncchronous code without stuck in callback hell. 来源
+ 避免开发中处理异步的代码陷入回调地狱。
+年轻的开发者可能对回调地狱没什么概念，在没有Promise的时代，处理异步请求只能通过回调函数，在NodeJs的API里还能窥见一些封建残余，这里拿fs（file system）模块为例
+ const fs = require(&amp;#39;fs&amp;#39;);  fs.readFile(&amp;#39;/ets/hosts&amp;#39;, (err, data) =&amp;gt; {  if (err) throw err;  // do something with data... }) 如果业务复杂到一定程度，代码里会出现很多回调的嵌套，使得项目异常难以维护。
+实现原理 一个Promise包含三种状态
+ pending state resolved state rejected state  对应到现实中，一件事，要么正在处理，要么处理完了，要么在处理的过程中出了差错。
+比如你去饭店吃饭，点了一个大盘鸡，从下单开始，状态就是（pending），等了10分钟后，服务员把一盘热气腾腾大盘鸡端上桌了，此时状态就是（resolved），假如在你下单后，后厨发现没鸡了，服务员过来告诉你大盘鸡做不了，这就叫（rejected）。下单这个动作，可以理解为创建了一个Promise，之后无论大盘鸡做好没做好，服务员都会来通知你，最后要么你顺利吃上大盘鸡，要么吃不上，就这两种结果。</description>
+    </item>
+    
     <item>
       <title>雨果</title>
-      <link>localhost:1313/posts/hugo/</link>
+      <link>https://weita0.github.io/posts/hugo/</link>
       <pubDate>Sat, 04 Jun 2022 17:50:49 +0800</pubDate>
       
-      <guid>localhost:1313/posts/hugo/</guid>
+      <guid>https://weita0.github.io/posts/hugo/</guid>
       <description>写在前面 这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。
 快速实现 首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。
 在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用brew install hugo来安装。
 安装完成后，执行hugo new site [projname]命令，这个命令会为你的项目生成一个目录。
 cd [projname]进入项目目录。
 git init 初始化git。
-git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。这里不知道git submodule也没关系。
 打开一个文本编辑器，在config.toml文件下添加一行，theme = &amp;quot;ananke&amp;quot;。
 hugo new posts/first.md这个命令会为你创建一篇文章草稿。打开这个文件可以看到
---- title: &amp;#34;First&amp;#34; date: 2022-06-05T16:06:50+08:00 draft: true --- title是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。
-draft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来
-试着在这个文件下面随便写点什么
-hugo
-这个命令会构建你的网站
+--- title: &amp;#34;First&amp;#34; date: 2022-06-05T16:06:50+08:00 draft: true --- title是你这篇文章的标题，默认的标题是你的文件名去掉中划线。
+draft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来，这里把它改为draft: false。
+试着在这个文件下面随便写点什么。
 编辑config.toml，增加一行baseURL = &#39;localhost:1313/&#39;，当然也可以是别的端口号。
-hugo server -D
-在本地启动一个服务，通过localhost:1313，就可以看到你的网站了。</description>
+通过hugo server -D命令在本地启动服务，浏览器里输入地址localhost:1313，就可以看到你的网站了。
+部署到Github Pages 完成这一步之前，你只能在本地访问你的网站，完成这一步之后，任何上网的人都可以通过一个专属于你的地址访问你的网站。
+在Github上创建一个项目仓库（repo），项目名必须是 [userid].github.io，userid是</description>
     </item>
     
   </channel>
