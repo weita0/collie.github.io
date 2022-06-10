@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>雨果 | Collie的博客</title>
+<meta name="keywords" content="">
+<meta name="description" content="写在前面 这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。
+快速实现 首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。
+在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用brew install hugo来安装。
+安装完成后，执行hugo new site [projname]命令，这个命令会为你的项目生成一个目录。
+cd [projname]进入项目目录。
+git init 初始化git。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。
+打开一个文本编辑器，在config.toml文件下添加一行，theme = &quot;ananke&quot;。
+hugo new posts/first.md这个命令会为你创建一篇文章草稿。打开这个文件可以看到
+--- title: &#34;First&#34; date: 2022-06-05T16:06:50&#43;08:00 draft: true --- title是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。
+draft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来
+试着在这个文件下面随便写点什么
+hugo
+这个命令会构建你的网站
+编辑config.toml，增加一行baseURL = &#39;localhost:1313/&#39;，当然也可以是别的端口号。
+hugo server -D
+在本地启动一个服务，通过localhost:1313，就可以看到你的网站了。">
+<meta name="author" content="">
+<link rel="canonical" href="#ZgotmplZ">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="#ZgotmplZ">
+<link rel="icon" type="image/png" sizes="16x16" href="#ZgotmplZ">
+<link rel="icon" type="image/png" sizes="32x32" href="#ZgotmplZ">
+<link rel="apple-touch-icon" href="#ZgotmplZ">
+<link rel="mask-icon" href="#ZgotmplZ">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="雨果" />
+<meta property="og:description" content="写在前面 这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。
+快速实现 首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。
+在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用brew install hugo来安装。
+安装完成后，执行hugo new site [projname]命令，这个命令会为你的项目生成一个目录。
+cd [projname]进入项目目录。
+git init 初始化git。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。
+打开一个文本编辑器，在config.toml文件下添加一行，theme = &quot;ananke&quot;。
+hugo new posts/first.md这个命令会为你创建一篇文章草稿。打开这个文件可以看到
+--- title: &#34;First&#34; date: 2022-06-05T16:06:50&#43;08:00 draft: true --- title是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。
+draft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来
+试着在这个文件下面随便写点什么
+hugo
+这个命令会构建你的网站
+编辑config.toml，增加一行baseURL = &#39;localhost:1313/&#39;，当然也可以是别的端口号。
+hugo server -D
+在本地启动一个服务，通过localhost:1313，就可以看到你的网站了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="localhost:1313/posts/hugo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-04T17:50:49&#43;08:00" />
+<meta property="article:modified_time" content="2022-06-04T17:50:49&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="雨果"/>
+<meta name="twitter:description" content="写在前面 这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。
+快速实现 首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。
+在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用brew install hugo来安装。
+安装完成后，执行hugo new site [projname]命令，这个命令会为你的项目生成一个目录。
+cd [projname]进入项目目录。
+git init 初始化git。
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。
+打开一个文本编辑器，在config.toml文件下添加一行，theme = &quot;ananke&quot;。
+hugo new posts/first.md这个命令会为你创建一篇文章草稿。打开这个文件可以看到
+--- title: &#34;First&#34; date: 2022-06-05T16:06:50&#43;08:00 draft: true --- title是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。
+draft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来
+试着在这个文件下面随便写点什么
+hugo
+这个命令会构建你的网站
+编辑config.toml，增加一行baseURL = &#39;localhost:1313/&#39;，当然也可以是别的端口号。
+hugo server -D
+在本地启动一个服务，通过localhost:1313，就可以看到你的网站了。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "雨果",
+      "item": "localhost:1313/posts/hugo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "雨果",
+  "name": "雨果",
+  "description": "写在前面 这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。\n快速实现 首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。\n在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用brew install hugo来安装。\n安装完成后，执行hugo new site [projname]命令，这个命令会为你的项目生成一个目录。\ncd [projname]进入项目目录。\ngit init 初始化git。\ngit submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。\n打开一个文本编辑器，在config.toml文件下添加一行，theme = \u0026quot;ananke\u0026quot;。\nhugo new posts/first.md这个命令会为你创建一篇文章草稿。打开这个文件可以看到\n--- title: \u0026#34;First\u0026#34; date: 2022-06-05T16:06:50+08:00 draft: true --- title是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。\ndraft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来\n试着在这个文件下面随便写点什么\nhugo\n这个命令会构建你的网站\n编辑config.toml，增加一行baseURL = 'localhost:1313/'，当然也可以是别的端口号。\nhugo server -D\n在本地启动一个服务，通过localhost:1313，就可以看到你的网站了。",
+  "keywords": [
+    
+  ],
+  "articleBody": "写在前面 这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。\n快速实现 首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。\n在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用brew install hugo来安装。\n安装完成后，执行hugo new site [projname]命令，这个命令会为你的项目生成一个目录。\ncd [projname]进入项目目录。\ngit init 初始化git。\ngit submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke 为你的网站添加一个主题，通过git submodule的方式。\n打开一个文本编辑器，在config.toml文件下添加一行，theme = \"ananke\"。\nhugo new posts/first.md这个命令会为你创建一篇文章草稿。打开这个文件可以看到\n--- title: \"First\" date: 2022-06-05T16:06:50+08:00 draft: true --- title是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。\ndraft表示文章是否是草稿状态，draft: true表示这是篇草稿，不会对外展示出来\n试着在这个文件下面随便写点什么\nhugo\n这个命令会构建你的网站\n编辑config.toml，增加一行baseURL = 'localhost:1313/'，当然也可以是别的端口号。\nhugo server -D\n在本地启动一个服务，通过localhost:1313，就可以看到你的网站了。\n",
+  "wordCount" : "50",
+  "inLanguage": "en",
+  "datePublished": "2022-06-04T17:50:49+08:00",
+  "dateModified": "2022-06-04T17:50:49+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "localhost:1313/posts/hugo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Collie的博客",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "localhost:1313/"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="#ZgotmplZ" accesskey="h" title="Collie的博客 (Alt + H)">Collie的博客</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      雨果
+    </h1>
+    <div class="post-meta"><span title='2022-06-04 17:50:49 +0800 CST'>June 4, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="写在前面">写在前面<a hidden class="anchor" aria-hidden="true" href="#写在前面">#</a></h2>
+<p>这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。</p>
+<h2 id="快速实现">快速实现<a hidden class="anchor" aria-hidden="true" href="#快速实现">#</a></h2>
+<p>首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。</p>
+<p>在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用<code>brew install hugo</code>来安装。</p>
+<p>安装完成后，执行<code>hugo new site [projname]</code>命令，这个命令会为你的项目生成一个目录。</p>
+<p><code>cd [projname]</code>进入项目目录。</p>
+<p><code>git init</code> 初始化git。</p>
+<p><code>git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke</code> 为你的网站添加一个主题，通过git submodule的方式。</p>
+<p>打开一个文本编辑器，在<code>config.toml</code>文件下添加一行，<code>theme = &quot;ananke&quot;</code>。</p>
+<p><code>hugo new posts/first.md</code>这个命令会为你创建一篇文章草稿。打开这个文件可以看到</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;First&#34;
+</span></span><span style="display:flex;"><span>date: 2022-06-05T16:06:50+08:00
+</span></span><span style="display:flex;"><span>draft: true
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p><code>title</code>是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。</p>
+<p><code>draft</code>表示文章是否是草稿状态，<code>draft: true</code>表示这是篇草稿，不会对外展示出来</p>
+<p>试着在这个文件下面随便写点什么</p>
+<p><code>hugo</code></p>
+<p>这个命令会构建你的网站</p>
+<p>编辑<code>config.toml</code>，增加一行<code>baseURL = 'localhost:1313/'</code>，当然也可以是别的端口号。</p>
+<p><code>hugo server -D</code></p>
+<p>在本地启动一个服务，通过<code>localhost:1313</code>，就可以看到你的网站了。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>fuckyaall</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

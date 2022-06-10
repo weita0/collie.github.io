@@ -1,4 +1,4 @@
 baseURL = 'localhost:1313/'
-languageCode = 'en-us'
+languageCode = 'zh-Hans'
 title = 'Collie的博客'
 theme = "PaperMod"

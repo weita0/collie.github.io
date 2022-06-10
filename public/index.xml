@@ -5,14 +5,15 @@
     <link>localhost:1313/</link>
     <description>Recent content on Collie的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-Hans</language>
+    <copyright>fuckyaall</copyright>
     <lastBuildDate>Sat, 04 Jun 2022 17:50:49 +0800</lastBuildDate><atom:link href="localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>雨果</title>
-      <link>localhost:1313/posts/first-article/</link>
+      <link>localhost:1313/posts/hugo/</link>
       <pubDate>Sat, 04 Jun 2022 17:50:49 +0800</pubDate>
       
-      <guid>localhost:1313/posts/first-article/</guid>
+      <guid>localhost:1313/posts/hugo/</guid>
       <description>写在前面 这篇文章要讲的，不是写出了《巴黎圣母院》、《悲惨世界》以及《九三年》的法国作家维克托雨果，也不是马丁斯科塞斯执导的同名电影，也并非科幻小说届的奥斯卡——雨果奖。本文所要介绍的，是一个名叫雨果的，用于生成静态网站的工具。只需要非常简单的一些步骤，你就能搭建出一个任何人都能够访问的静态网站（博客当然也算在内）。
 快速实现 首先确保你有一个Github账号，并且会使用一些基本的git命令，电脑上也装有git，如果你具备条件，所有这些步骤大概仅需二十分钟。
 在你的电脑上安装Hugo，在MacOS上，可以像我一样方便地使用brew install hugo来安装。

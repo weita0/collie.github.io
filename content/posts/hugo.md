@@ -20,7 +20,7 @@ draft: false
 
 `git init` 初始化git。
 
-`git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke` 为你的网站添加一个主题，通过git submodule的方式。
+`git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke` 为你的网站添加一个主题，通过git submodule的方式。这里不知道`git submodule`也没关系。
 
 打开一个文本编辑器，在`config.toml`文件下添加一行，`theme = "ananke"`。
 
@@ -34,18 +34,18 @@ draft: true
 ---
 ```
 
-`title`是你这篇文章的标题，默认的标题就是你的文件名去掉中划线。
+`title`是你这篇文章的标题，默认的标题是你的文件名去掉中划线。
 
-`draft`表示文章是否是草稿状态，`draft: true`表示这是篇草稿，不会对外展示出来
+`draft`表示文章是否是草稿状态，`draft: true`表示这是篇草稿，不会对外展示出来，这里把它改为`draft: false`。
 
-试着在这个文件下面随便写点什么
-
-`hugo`
-
-这个命令会构建你的网站
+试着在这个文件下面随便写点什么。
 
 编辑`config.toml`，增加一行`baseURL = 'localhost:1313/'`，当然也可以是别的端口号。
 
-`hugo server -D`
+通过`hugo server -D`命令在本地启动服务，浏览器里输入地址`localhost:1313`，就可以看到你的网站了。
 
-在本地启动一个服务，通过`localhost:1313`，就可以看到你的网站了。
+## 部署到Github Pages
+
+完成这一步之前，你只能在本地访问你的网站，完成这一步之后，任何上网的人都可以通过一个专属于你的地址访问你的网站。
+
+在Github上创建一个项目仓库（repo），项目名必须是 [userid].github.io，userid是
